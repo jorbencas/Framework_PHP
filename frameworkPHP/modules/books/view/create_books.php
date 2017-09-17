@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 			  <td>N&uacute;mero del volumen </td>
-			  <td>Vol 1 <input name="vol" type="radio" value="1" >
+			  <td>Vol 1 <input name="vol" type="radio" value="1" checked>
 				 Vol 2 <input name="vol" type="radio" value="2">
 					Vol 3 <input name="vol" type="radio" value="3">
 					Vol 4 <input name="vol" type="radio" value="4"></td>
@@ -53,7 +53,7 @@
 			<tr>
 			  <td>Generos</td>
 			  <td>Ciénci&aacute;Ficción
-					<input type="checkbox" name="gustos[]" value="Ciéncia Ficción">
+					<input type="checkbox" name="gustos[]" value="Ciéncia Ficción" checked>
 					Drama  <input type="checkbox" name="gustos[]" value="Drama">
 					Comedia <input type="checkbox" name="gustos[]" value="Comedia">
 					Thriller <input type="checkbox" name="gustos[]" value="Thriller">
