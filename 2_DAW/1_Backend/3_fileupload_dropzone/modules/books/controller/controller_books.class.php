@@ -3,6 +3,7 @@ session_start();
 //include  with absolute route
 include ($_SERVER['DOCUMENT_ROOT'] . "/2_DAW/1_Backend/3_fileupload_dropzone/modules/books/utils/functions_user.inc.php");
 include ($_SERVER['DOCUMENT_ROOT'] . "/2_DAW/1_Backend/3_fileupload_dropzone/utils/upload.php");
+include ($_SERVER['DOCUMENT_ROOT'] . "/2_DAW/1_Backend/3_fileupload_dropzone/utils/common.inc.php");
 
 //////////////////////////////////////////////////////////////// upload
 if ((isset($_GET["upload"])) && ($_GET["upload"] == true)) {
@@ -20,25 +21,36 @@ function alta_users() {
     $jsondata = array();
     $usersJSON = json_decode($_POST["alta_users_json"], true);
     $result = validate_user($usersJSON);
-
+   
     if (empty($_SESSION['result_avatar'])) {
         $_SESSION['result_avatar'] = array('resultado' => true, 'error' => "", 'datos' => 'media/default-avatar.png');
     }
     $result_avatar = $_SESSION['result_avatar'];
-
+   
     if (($result['resultado']) && ($result_avatar['resultado'])) {
         $arrArgument = array(
           'isbn' => $result['datos']['isbn'],
-          'Titulo' => ucfirst($result['datos']['Titulo']),
+          'Titulo' => $result['datos']['Titulo'],
           'edicion' => $result['datos']['edicion'],
           'vol' => $result['datos']['vol'],
           'date_reception' => $result['datos']['date_reception'],
           'Autores' => $result['datos']['Autores'],
           'gustos' => $result['datos']['gustos'],
+          'country' => $result['datos']['country'],
+          'province' => $result['datos']['province'],
+          'city' => $result['datos']['city'],
           'avatar' => $result_avatar['datos']
         );
+        /////////////////insert into BD////////////////////////
+         $arrValue = false;
+         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/2_DAW/1_Backend/3_fileupload_dropzone/modules/books/model/model/';
+         $arrValue = loadModel($path_model, "user_model", "create_user", $arrArgument);
 
-        $mensaje = "User has been successfully registered";
+          if ($arrValue)
+            $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
+          else
+            $mensaje = "No se ha podido realizar su alta. Intentelo mas tarde";
+
 
         //redirigir a otra p�gina con los datos de $arrArgument y $mensaje
         $_SESSION['user'] = $arrArgument;
@@ -114,3 +126,60 @@ if ((isset($_GET["load_data"])) && ($_GET["load_data"] == true)) {
         exit;
     }
 }
+
+
+////////////////////////////////////////////////// load_country
+if(  (isset($_GET["load_country"])) && ($_GET["load_country"] == true)  ){
+		$json = array();
+
+    	$url = 'http://www.oorsprong.org/websamples.countryinfo/CountryInfoService.wso/ListOfCountryNamesByName/JSON';
+		$path_model=$_SERVER['DOCUMENT_ROOT'] . '/2_DAW/1_Backend/3_fileupload_dropzone/modules/books/model/model/';
+		$json = loadModel($path_model, "user_model", "obtain_countries", $url);
+
+		if($json){
+			echo $json;
+			exit;
+		}else{
+			$json = "error";
+			echo $json;
+			exit;
+		}
+	}
+
+/////////////////////////////////////////////////// load_provinces
+if(  (isset($_GET["load_provinces"])) && ($_GET["load_provinces"] == true)  ){
+    	$jsondata = array();
+        $json = array();
+
+		$path_model=$_SERVER['DOCUMENT_ROOT'] . '/2_DAW/1_Backend/3_fileupload_dropzone/modules/books/model/model/';
+		$json = loadModel($path_model, "user_model", "obtain_provinces");
+
+		if($json){
+			$jsondata["provinces"] = $json;
+			echo json_encode($jsondata);
+			exit;
+		}else{
+			$jsondata["provinces"] = "error";
+			echo json_encode($jsondata);
+			exit;
+		}
+	}
+
+/////////////////////////////////////////////////// load_cities
+if(  isset($_POST['idPoblac']) ){
+	    $jsondata = array();
+        $json = array();
+
+		$path_model=$_SERVER['DOCUMENT_ROOT'] . '/2_DAW/1_Backend/3_fileupload_dropzone/modules/books/model/model/';
+		$json = loadModel($path_model, "user_model", "obtain_cities", $_POST['idPoblac']);
+
+		if($json){
+			$jsondata["cities"] = $json;
+			echo json_encode($jsondata);
+			exit;
+		}else{
+			$jsondata["cities"] = "error";
+			echo json_encode($jsondata);
+			exit;
+		}
+	}

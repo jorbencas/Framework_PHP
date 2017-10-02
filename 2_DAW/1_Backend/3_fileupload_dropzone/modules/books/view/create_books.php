@@ -6,8 +6,7 @@
 		<section id="contact-page">
 		    <div class="container">
 		        <div class="center">
-		            <h2>ADD USER    </h2>
-		            <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		            <h2>ADD BOOK</h2>
 		        </div>
 		        <div class="row contact-wrap">
 		            <div class="status alert alert-success" style="display: none"></div>
@@ -20,7 +19,7 @@
 		                    <div class="form-group">
 		                        <label>ISBN *</label>
 		                        <input type="text" id="isbn" name="ISBN" placeholder="ISBN" class="form-control" value="" required="required">
-		                        <div id="e_ISBN"></div>
+		                        <div id="e_isbn"></div>
 		                    </div>
 		                    <br />
 		                    <div class="form-group">
@@ -37,7 +36,7 @@
 		                    </div>
 		                    <br />
 		                    <div class="form-group">
-		                        <label>Date of obtaining title *</label><br />
+		                        <label>Date of publishing title *</label><br />
 		                        <input id="date_reception" type="text" name="date_reception" placeholder="mm/dd/yyyy" value=""  class="form-control" >
 		                        <div id="e_date_reception"></div>
 		                    </div>
@@ -52,33 +51,51 @@
 		                            <option value="limitada">limitada</option>
 		                            <option value="e_lujo">Edicion de lujo</option>
 		                        </select>
-		                        <div id="edicion"></div>
+		                        <div id="e_edicion"></div>
 		                    </div>
-
 		                </div>
 		                <div class="col-sm-5">
 		                    <div class="form-group">
-													<label>Numero de volumen</label><br>
-													Vol 1 <input name="vol" id="vol" type="radio" value="1" checked>
-			 										Vol 2 <input name="vol" id="vol" type="radio" value="2">
-													Vol 3 <input name="vol" id="vol" type="radio" value="3">
-													Vol 4 <input name="vol" id="vol" type="radio" value="4">
+									<label>Numero de volumen</label><br>
+									Vol 1 <input name="vol" id="vol" type="radio" value="1">
+			 						Vol 2 <input name="vol" id="vol" type="radio" value="2">
+									Vol 3 <input name="vol" id="vol" type="radio" value="3">
+									Vol 4 <input name="vol" id="vol" type="radio" value="4">
 		                        <div id="e_vol"></div>
 		                    </div>
 		                    <br />
 		                    <div class="form-group">
 		                        <label>gustos  *</label><br>
-
-		                        Drama  <input type="checkbox"  id="gustos" name="gustos[]" class="messageCheckbox" value="Drama">
-		                        Comedia  <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Comedia">
-		                        Thriller  <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Thriller">
-		                        Aventura   <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Aventura">
+		                        Drama <input type="checkbox"  id="gustos" name="gustos[]" class="messageCheckbox" value="Drama">
+		                        Comedia <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Comedia">
+		                        Thriller <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Thriller">
+		                        Aventura <input type="checkbox" id="gustos" name="gustos[]" class="messageCheckbox" value="Aventura">
 		                        <div id="e_gustos"></div>
 		                    </div>
-		                    <br />
-		                    <br />
-		                    <br />
-		                    <br />
+										<div class="form-group">
+											<label>Country: </label><br>
+			    						<select name="country" id="country">
+			    							<option selected>Select country</option>
+											</select>
+											<div id="error_country"></div>
+										</div>
+										<br/>
+											<div class="form-group">
+												<label>Province: </label><br>
+													<select name="province" id="province">
+														<option selected>Select province</option>
+													</select>
+													<div id="error_province"></div>
+												</div>
+												<br/>
+      									<div class="form-group">
+													<label>City: </label><br>
+													<select name="city" id="city">
+														<option selected>Select city</option>
+													</select>
+													<div id="error_city"></div>
+      									</div>
+		                    <br/>
 		                    <div class="form-group" id="progress">
 		                        <div id="bar"></div>
 		                        <div id="percent">0%</div >
@@ -86,8 +103,6 @@
 		                    <div class="msg"></div>
 		                    <br/>
 		                    <div id="dropzone" class="dropzone"></div><br/>
-		                    <br/>
-		                    <br/>
 		                    <br/>
 										</div>
 		                    <div class="form-group">

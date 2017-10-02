@@ -68,12 +68,6 @@
                                  echo 'deactivate';
                         ?>"><a href="index.php?module=books&view=create_books">Books</a></li>
                         <li class="
-                        <?php if($_GET['module'] === 'users')
-                                 echo'active';
-                              else
-                                 echo 'deactivate';
-                        ?>"><a href="index.php?module=users&view=create_users">users</a></li>
-                        <li class="
                         <?php if($_GET['module'] === 'portfolio')
                                  echo'active';
                               else
@@ -122,6 +116,15 @@
                         ?>"><a href="index.php?module=contact-us">Contact</a></li>
                     </ul>
                 </div>
+                <h1><?php
+                    if (!isset($_GET['module'])) {
+                        echo "Home";
+                    } else if (isset($_GET['module']) && !isset($_GET['view'])) {
+                        echo "<a href='index.php?module=" . $_GET['module'] . "'>" . $_GET['module'] . "</a>";
+                    }else{
+                        echo "<a href='index.php?module=" . $_GET['module'] . "&view=".$_GET['view']."'>" . $_GET['module'] . "</a>";
+                    }
+                    ?></h1>
             </div><!--/.container-->
         </nav><!--/nav-->
 

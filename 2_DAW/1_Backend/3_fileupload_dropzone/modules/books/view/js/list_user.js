@@ -63,6 +63,17 @@ function pintar_user(data) {
     for(var i =0;i < data.user.gustos.length;i++){
     gustos.innerHTML += " - "+data.user.gustos[i];
     }
+    var country = document.createElement("div");
+    country.innerHTML = "country = ";
+    country.innerHTML += data.user.country;
+
+    var province = document.createElement("div");
+    province.innerHTML = "province = ";
+    province.innerHTML += data.user.province;
+
+    var city = document.createElement("div");
+    city.innerHTML = "city = ";
+    city.innerHTML += data.user.city;
 
     //arreglar ruta IMATGE!!!!!
 
@@ -82,6 +93,9 @@ function pintar_user(data) {
     parrafo.appendChild(edicion);
     parrafo.appendChild(vol);
     parrafo.appendChild(gustos);
+    parrafo.appendChild(country);
+    parrafo.appendChild(province);
+    parrafo.appendChild(city);
     content.appendChild(div_user);
     content.appendChild(img);
 }

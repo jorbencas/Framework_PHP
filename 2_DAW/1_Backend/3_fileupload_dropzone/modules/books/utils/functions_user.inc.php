@@ -1,7 +1,6 @@
 <?php
 
 function validate_user($value) {
-
     $error = array();
     $valido = true;
     $filtro = array(
@@ -30,42 +29,60 @@ function validate_user($value) {
     $resultado['edicion'] = $value['edicion'];
     $resultado['gustos'] = $value['gustos'];
     $resultado['vol'] = $value['vol'];
+    $resultado['country'] = $value['country'];
+    $resultado['province'] = $value['province'];
+    $resultado['city'] = $value['city'];
 
     if ($resultado['edicion'] === 'Select level') {
-        $error['edicion'] = "You haven't select Edition.";
+        $error['e_edicion'] = "You haven't select Edition.";
         $valido = false;
     }
 
     if(count($resultado['vol']) < 1){
-        $error['vol'] = "Select 1";
+        $error['e_vol'] = "Select 1";
         $valido = false;
     }
 
+    if ($resultado['country']==='Select country'){
+           $error['country']="You need to choose a country";
+           $valid = false;
+       }
+
+   if ($resultado['province']==='Select province'){
+           $error['province']="You need to choose a province";
+           $valid = false;
+       }
+
+   if ($resultado['city']==='Select city'){
+           $error['city']="You need to choose a city";
+           $valid = false;
+       }
+
     if(count($resultado['gustos']) <= 1){
-        $error['gustos'] = "Select 2 or more.";
+        $error['e_gustos'] = "Select 2 or more.";
         $valido = false;
     }
 
     if ($resultado != null && $resultado) {
 
         if (!$resultado['Titulo']) {
-            $error['Titulo'] = 'Title must be 2 to 20 letters';
+            $error['e_Titulo'] = 'Title must be 2 to 20 letters';
             $valido = false;
         }
 
         if (!$resultado['Autores']) {
-            $error['Autores'] = 'Autor must be 2 to 20 characters';
+            $error['e_Autores'] = 'Autor must be 2 to 20 characters';
             $valido = false;
         }
 
         if (!$resultado['isbn']) {
-            $error['isbn'] = 'isbn must be 8 to 13 numbers';
+            $error['e_isbn'] = 'isbn must be 8 to 13 numbers';
             $valido = false;
         }
 
         if (!$resultado['date_reception']) {
             if($resultado['date_reception'] == ""){
-                $error['date_reception'] = "this camp can't empty";
+                $error['e_date_reception'] = "this camp can't empty";
                 $valido = false;
             }
         }
