@@ -68,6 +68,12 @@
                                  echo 'deactivate';
                         ?>"><a href="index.php?module=books&view=create_books">Books</a></li>
                         <li class="
+                        <?php if($_GET['module'] === 'listbooks')
+                                 echo'active';
+                              else
+                                 echo 'deactivate';
+                        ?>"><a href="index.php?module=listbooks&view=list_books">List Books</a></li>
+                        <li class="
                         <?php if($_GET['module'] === 'portfolio')
                                  echo'active';
                               else

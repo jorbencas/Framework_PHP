@@ -1,6 +1,6 @@
 CREATE TABLE books(
-IDBOOK int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-isbn int,
+idbook int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+isbn varchar(255),
 Titulo varchar(255),
 Autores varchar(255),
 date_reception varchar(255),
