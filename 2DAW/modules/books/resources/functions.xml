@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>form_books</name>
+        <uri>form_books</uri>
+    </function>
+     <function>
+        <name>results_books</name>
+        <uri>results_books</uri>
+    </function>
+    <function>
+        <name>alta_books</name>
+        <uri>alta_books</uri>
+    </function>
+    <function>
+        <name>load_books</name>
+        <uri>load_books</uri>
+    </function>
+    <function>
+        <name>upload_books</name>
+        <uri>upload_books</uri>
+    </function>
+    <function>
+        <name>delete_books</name>
+        <uri>delete_books</uri>
+    </function>
+    <function>
+        <name>load_data_books</name>
+        <uri>load_data_books</uri>
+    </function>
+    <function>
+        <name>load_country_books</name>
+        <uri>load_country_books</uri>
+    </function>
+    <function>
+        <name>load_provinces_books</name>
+        <uri>load_provinces_books</uri>
+    </function>
+    <function>
+        <name>load_cities_books</name>
+        <uri>load_cities_books</uri>
+    </function>
+</functions>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>form_list_books</name>
+        <uri>form_list_books</uri>
+    </function>
+    <function>
+        <name>form_details_books</name>
+        <uri>form_details_books</uri>
+    </function>
+    <function>
+        <name>load_listbooks</name>
+        <uri>load_listbooks</uri>
+    </function>
+    <function>
+        <name>load_datails</name>
+        <uri>load_datails</uri>
+    </function>
+    <function>
+        <name>load_details1</name>
+        <uri>load_details1</uri>
+    </function>
+</functions>
