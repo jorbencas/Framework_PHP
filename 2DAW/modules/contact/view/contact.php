@@ -1,52 +1,43 @@
 <br><br><br><br><br><br><br><br><br>
-
-<script src="<?php echo CONTACT_LIB_PATH; ?>bootstrap-button.js"></script>
-<script src="<?php echo CONTACT_LIB_PATH; ?>jquery.validate.min.js"></script>
-<script src="<?php echo CONTACT_LIB_PATH; ?>jquery.validate.extended.js"></script>
 <script src="<?php echo CONTACT_JS_PATH; ?>contact.js"></script>
 
-<link href="<?php echo CONTACT_CSS_PATH; ?>bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo CONTACT_CSS_PATH; ?>custom.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
-
-
 <div class="container">
-    <form id="contact_form" name="contact_form" class="form-contact">
-        <h2 class="form-contact-heading">Contact Us</h2>
-        
-        <div class="control-group">
-            <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100">
+    <form>
+        <div class="row">
+            <div>
+                 <div class="form-group">
+                     <label for="name"> Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" value="Jorge"/>
+                    <span id="err_name"style='color:red;'></span>
+                </div>
+                 <div class="form-group">
+                     <label for="email"> Email Address</label>
+                     <div class="input-group">
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" value="jorbencas@gmail.com"/></div>
+                       <span id="err_email"style='color:red;'></span>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                  <label for="subject"> Subject</label>
+                  <select id="subject" name="subject" class="form-control" required="required">
+                      <option value="dv" selected="">Choose One:</option>
+                      <option value="General">General</option>
+                      <option value="Technical">Technical</option>
+                      <option value="Other">Other</option>
+                  </select>
+                    <span id="err_subject"style='color:red;'></span>
+                 </div>
+             </div>
+             <div>
+                 <div class="form-group">
+                     <label for="name"> Message</label>
+                     <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+                     <span id="err_message"style='color:red;'></span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="button" id="boton"> Send Message</button>
+            </div>
         </div>
-        <div class="control-group">
-            <input type="text" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level" maxlength="100">
-        </div>
-        <div class="control-group">
-            <label for="sel1">Subject</label>
-            <select class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
-                <option value="compra">Info relativa a tu compra</option>
-                <option value="evento">Celebra un evento con nosotros</option>
-                <option value="programacion">Contacta con nuestro dpto de programacion</option>
-                <option value="Trabaja">Trabaja con nosotros</option>
-                <option value="proyectos">Deseas proponernos proyectos</option>
-                <option value="sugerencias">Haznos sugerencias</option>
-                <option value="reclamaciones">Atendemos tus reclamaciones</option>
-                <option value="club">Club rural_shop</option>
-                <option value="sociales">Proyectos sociales</option>
-                <option value="festivos">Apertura de festivos</option>
-                <option value="novedades">Te avisamos de nuestras novedades</option>
-                <option value="diferente">Algo diferente</option>
-            </select>
-        </div>
-        <div class="control-group">
-              <textarea class="input-block-level" rows="4" name="inputMessage" placeholder="Message *" style="max-width: 100%;" dir="auto"></textarea>
-        </div>
-        
-        <input type="hidden" name="token" value="contact_form" />
-        
-        <input class="btn btn-primary" type="submit" name="submit" id="submitBtn" disabled="disabled" value="send" />
-        
-        <img src="<?php echo CONTACT_IMG_PATH; ?>ajax-loader.gif" alt="ajax loader icon" class="ajaxLoader" /><br/><br/>
-          
-        <div id="resultMessage" style="display: none;"></div>
     </form>
 </div> <!-- /container -->

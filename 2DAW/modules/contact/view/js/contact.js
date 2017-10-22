@@ -1,76 +1,56 @@
-function paint(dataString) {
-    $("#resultMessage").html(dataString).fadeIn("slow");
-                    
-    setTimeout(function() {
-        $("#resultMessage").fadeOut("slow")
-    }, 5000);
-                            
-    //reset the form
-    $('#contact_form')[0].reset();
-                            
-    // hide ajax loader icon
-    $('.ajaxLoader').fadeOut("fast");
-                            
-    // Enable button after processing
-    $('#submitBtn').attr('disabled', false);
-                    
-    /*if (dataString == "<div class='alert alert-success'>Your message has been sent </div>"){
-        alert(dataString);
-    }else{
-        alert(dataString);
-    }*/
+window.onload = init;
+
+function init(){
+  var but = document.getElementById('boton');
+  but.addEventListener("click", () => {
+  validate_contact();
+   });
+
 }
 
-$(document).ready(function(){
-    // disable submit button in case of disabled javascript browsers
-    $(function(){
-        $('#submitBtn').attr('disabled', false);
-    });
-            
-	$("#contact_form").validate({
-				rules:{
-					inputName:{
-                        required: true
-					},
-					inputEmail:{
-                        required: true,
-                        email: true
-					},
-                    inputMessage:{
-                        required: true
-                    }
-				},
-        highlight: function(element) {
-            $(element).closest('.control-group').removeClass('success').addClass('error');},
-        success: function(element) {
-            $(element).closest('.control-group').removeClass('error').addClass('success');
-            $(element).closest('.control-group').find('label').remove();
-        },
-        errorClass: "help-inline"
-	});
-	
-    $("#contact_form").submit(function(){
-        if ($("#contact_form").valid()){
-            
-            // Disable button while processing
-            $('#submitBtn').attr('disabled', true);
+function validate_contact(){
+  var name = document.getElementById('name');
+  var email = document.getElementById('email');
+  var subject = document.getElementById('subject');
+  var message = document.getElementById('message');
+  var error = true;
+  if(name.value === ""){
+    var er_name = document.getElementById('err_name');
+    er_name.innerHTML = "Introduce un nombre";
+    error = false;
+  }
+  if(email.value === ""){
+    var er_email = document.getElementById('err_email');
+    er_email.innerHTML = "Introduce un email";
+    error = false;
+  }
+  if(subject.value === "dv"){
+    var er_subject = document.getElementById('err_subject');
+    er_subject.innerHTML = "Elige una";
+    error = false;
+  }
+  if(message.value=== ""){
+    var er_message = document.getElementById('err_message');
+    er_message.innerHTML = "No puede dejar este campo en blanco";
+    error = false;
+  }
+  if(error === true){
+    console.log(typeof(message.value));
+  var data = {"name":name.value,"email":email.value,"subject":subject.value, "message": message.value};
+  var data_contactJSON = JSON.stringify(data);
+  console.log(data_contactJSON);
+      $.post('../../contact/send_mail/',
+              {data_contact: data_contactJSON},
 
-            // show ajax loader icon
-            $('.ajaxLoader').fadeIn("fast");
+      function (response) {
 
-            var dataString = $("#contact_form").serialize();
-            $.ajax({
-                type: "POST",
-                url: "index.php?module=contact&function=process_contact",
-                data: dataString,
-                success: function(dataString) {
-                    paint(dataString);
-                }
-            })
-            .fail(function() {
-                paint("<div class='alert alert-error'>Server error. Try later...</div>");
-            });
-        }
-        return false;
+          console.log("1 "+response.success);
+
+
+    }, "json").fail(function(xhr, textStatus, error) {
+      console.log(xhr.responseText);
+      console.log("2 "+xhr.responseText.success);
+      console.log("2 "+xhr.responseText.redirect);
     });
-});
+  }
+}

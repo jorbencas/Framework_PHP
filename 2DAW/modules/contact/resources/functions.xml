@@ -5,7 +5,11 @@
         <uri>view_contact</uri>
     </function>
     <function>
-        <name>process_contact</name>
-        <uri>process_contact</uri>
+        <name>send_mail</name>
+        <uri>send_mail</uri>
+    </function>
+    <function>
+        <name>send_mailgun</name>
+        <uri>send_mailgun</uri>
     </function>
 </functions>

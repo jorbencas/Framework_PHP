@@ -61,19 +61,13 @@
                                  echo'active';
                               else
                                  echo 'deactivate';
-                        ?>"><a href="<?php amigable('?module=listbooks&function=form_list_books'); ?>">Llistbooks</a></li>
+                        ?>"><a href="<?php amigable('?module=listbooks&function=form_list_books'); ?>">Listbooks</a></li>
                         <li class="
                         <?php if($_GET['module'] === 'contact')
                                  echo'active';
                               else
                                  echo 'deactivate';
                         ?>"><a href="<?php amigable('?module=contact&function=view_contact'); ?>">Contact</a></li>                        
-                         <li class="
-                                 <?php if($_GET['module'] === 'products')
-                                          echo'active';
-                                       else
-                                          echo 'deactivate';
-                                 ?>"><a href="<?php amigable('?module=products&function=create_products'); ?>">PRODUCTS</a></li>
                     </ul>
                 </div>
             </div>

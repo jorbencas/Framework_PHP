@@ -15,10 +15,6 @@ define('JS_PATH', SITE_PATH . 'view/js/');
 //IMG
 define('IMG_PATH', SITE_PATH . 'view/img/');
 
-//log
-define('USER_LOG_DIR', SITE_ROOT . 'log/user/Site_User_errors.log');
-define('GENERAL_LOG_DIR', SITE_ROOT . 'log/general/Site_General_errors.log');
-
 define('PRODUCTION', true);
 
 //model
@@ -53,13 +49,9 @@ define('BLL_PRODUCTS', SITE_ROOT . 'modules/listbooks/model/BLL/');
 define('MODEL_PRODUCTS', SITE_ROOT . 'modules/listbooks/model/model/');
 
 
-    //module contact
-    define('CONTACT_JS_PATH', SITE_PATH . 'modules/contact/view/js/');
-	define('CONTACT_CSS_PATH', SITE_PATH . 'modules/contact/view/css/');
-	define('CONTACT_LIB_PATH', SITE_PATH . 'modules/contact/view/lib/');
-	define('CONTACT_IMG_PATH', SITE_PATH . 'modules/contact/view/img/'); 
-    define('CONTACT_VIEW_PATH', 'modules/contact/view/');
-    
+//module contact
+define('CONTACT_JS_PATH', SITE_PATH . 'modules/contact/view/js/');
+define('CONTACT_VIEW_PATH', 'modules/contact/view/');
     
 //amigables
 define('URL_AMIGABLES', TRUE);

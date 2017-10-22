@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Corlate|<?php if($_GET['module']){ echo $_GET['module'];}else{ echo "homepage";} ?> </title>
+    <title>Corlate|<?php if($_GET['module']){ echo $_GET['module'];}else{ echo "main";} ?> </title>
 	
 	<!-- core CSS -->
     <link href="<?php echo CSS_PATH ?>bootstrap.min.css" rel="stylesheet">
